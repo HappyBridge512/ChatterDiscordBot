@@ -1,0 +1,9 @@
+version: '3'
+services:
+  mybot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./cogs:/usr/src/app/cogs
+    command: python main.py
