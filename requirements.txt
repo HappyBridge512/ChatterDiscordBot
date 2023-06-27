@@ -14,7 +14,7 @@ joblib==1.2.0
 mathparse==0.1.2
 multidict==6.0.4
 nltk==3.8.1
-Pint==0.3
+Pint==0.8.1
 pymongo==3.13.0
 python-dateutil==2.7.5
 python-dotenv==1.0.0
