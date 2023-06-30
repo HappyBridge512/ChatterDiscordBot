@@ -14,7 +14,7 @@ COPY main.py ./
 COPY config.py ./
 COPY discordchatbot.py ./
 COPY text_utils.py ./
-COPY .env ./
+# COPY .env ./
 COPY cogs/ ./cogs/
 COPY databaces/ ./databaces/
 
