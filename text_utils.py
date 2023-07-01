@@ -1,7 +1,7 @@
 from discordchatbot import DiscordChatBot
 
 
-class Utils:
+class TextUtils:
     
     def __init__(self, client):
         self.client = client

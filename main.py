@@ -19,6 +19,7 @@ client = commands.Bot(command_prefix='.', intents=disnake.Intents.all())
 async def on_ready():
     print(f'\n{client.user.name} ready!\nPing: {round(client.latency * 1000)} ms | Guilds: {len(client.guilds)} | Users: {len(client.users)}')
     client.remove_command('help')
+    await client.change_presence(status=disnake.Status.online, activity=disnake.Activity(type=disnake.ActivityType.competing, name='chat 📜'))
 
 
 @client.command(name='reload')

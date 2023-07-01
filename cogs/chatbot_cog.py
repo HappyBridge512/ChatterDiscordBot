@@ -2,7 +2,7 @@ import disnake
 from disnake.ext import commands
 from disnake import Option, OptionType, TextInputStyle
 
-from text_utils import Utils
+from text_utils import TextUtils
 
 
 class DiscordChatBotModal(disnake.ui.Modal):
@@ -19,7 +19,7 @@ class DiscordChatBotModal(disnake.ui.Modal):
         ]
         super().__init__(title='Message', components=components)
         self.client = client
-        self.utils = Utils(self.client)
+        self.utils = TextUtils(self.client)
     
 
     async def callback(self, inter: disnake.ModalInteraction):
@@ -46,7 +46,7 @@ class DiscordChatBotCog(commands.Cog):
 
     def __init__(self, client):
         self.client = client
-        self.utils = Utils(self.client)
+        self.utils = TextUtils(self.client)
     
 
     @commands.slash_command(name='ask', description='Ask chat bot',
