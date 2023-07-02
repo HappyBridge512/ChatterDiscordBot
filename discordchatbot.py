@@ -10,5 +10,5 @@ class DiscordChatBot:
         self.trainer.train('chatterbot.corpus.english')
 
     
-    def send_response(self, user_input: str):
-        return self.chatbot.get_response(user_input)
+    def send_response(self, content: str) -> str:
+        return self.chatbot.get_response(content)

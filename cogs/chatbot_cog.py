@@ -58,6 +58,7 @@ class DiscordChatBotCog(commands.Cog):
         await inter.response.defer(ephemeral=True)
         text = await self.utils.create_message(author=inter.author.name, author_text=text)
         await inter.followup.send(text, view=DiscordChatBotButton(self.client))
+        print('[INFO] New dialog')
     
 
 

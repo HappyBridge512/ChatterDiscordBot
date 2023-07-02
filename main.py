@@ -5,12 +5,14 @@ import os
 import time
 
 from config import settings
+from discordchatbot import DiscordChatBot
 
 from dotenv import load_dotenv
 
 load_dotenv()
 
 
+bot = DiscordChatBot()
 start_time = time.time()
 client = commands.Bot(command_prefix='.', intents=disnake.Intents.all())
 
