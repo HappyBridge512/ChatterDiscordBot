@@ -14,12 +14,20 @@ load_dotenv()
 
 bot = DiscordChatBot()
 start_time = time.time()
-client = commands.Bot(command_prefix='.', intents=disnake.Intents.all())
+
+if settings['DEV_MODE']:
+	log_text = '___[DEVELOPER MODE]___'
+	token = os.getenv('CANARY_TOKEN')
+	client = commands.Bot(command_prefix='.', intents=disnake.Intents.all())    # For Canary
+else:
+	log_text = '___[APPLICATION MODE]___'
+	token = os.getenv('AVOCADO_TOKEN')
+	client = commands.Bot(command_prefix='.', intents=disnake.Intents.all())
 
 
 @client.event
 async def on_ready():
-    print(f'\n{client.user.name} ready!\nPing: {round(client.latency * 1000)} ms | Guilds: {len(client.guilds)} | Users: {len(client.users)}')
+    print(f'\n{log_text}\n{client.user.name} ready!\nPing: {round(client.latency * 1000)} ms | Guilds: {len(client.guilds)} | Users: {len(client.users)}')
     client.remove_command('help')
     await client.change_presence(status=disnake.Status.online, activity=disnake.Activity(type=disnake.ActivityType.competing, name='chat 📜'))
 
@@ -71,6 +79,6 @@ class Loader:
 if __name__ == '__main__':
     Loader().load_cogs()
     try:
-        client.run(os.getenv('TOKEN'))
+        client.run(token)
     except Exception as e:
         print(f'[ERROR] {__name__}: {e}')
