@@ -1,7 +1,7 @@
 import disnake
 from disnake.ext import commands
 
-from discordchatbot import DiscordChatBot
+from tools.discordchatbot import DiscordChatBot
 
 
 class Events(commands.Cog):
@@ -32,7 +32,6 @@ class Events(commands.Cog):
     async def message_sender(self, message: disnake.Message):
         clean_content = message.clean_content
         await message.channel.send(self.bot.send_response(clean_content))
-        
 
 
 

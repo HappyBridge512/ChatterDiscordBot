@@ -2,7 +2,7 @@ import disnake
 from disnake.ext import commands
 from disnake import Option, OptionType, TextInputStyle
 
-from text_utils import TextUtils
+from tools.text_utils import TextUtils
 
 
 class DiscordChatBotModal(disnake.ui.Modal):
